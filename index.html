@@ -9,37 +9,40 @@
 </head>
 
 <body>
-    
+    <h1>Temperature App</h1>
+
+    <form onsubmit="conditionCheck(); return false">
+        <label for="temp">Temperature:</label>
+        <input type="text" id="temp">
+        <input type="submit" value="check">
 
 
+    </form>
 
-
-
-
+    <p id="result"></p>
 
     <script>
-    
-        
 
-        let temp = +prompt("Enter Your Temperature");
-        if (  temp > 50   ) {
-            document.write("it is too hot");
-            // console.log("it is too hot");
-        } 
+        function conditionCheck() {
+            let temp = +document.querySelector("#temp").value;
 
-        if (    temp < 50   ) {
-            document.write("it is too cold");
-            // console.log("it is too hot");
-        } 
-
-        // let temp = +prompt("enter your temperature");
-        // if ( temp > 30  ) {
-        //     console.log("it is too hot");
-        // }
-        // if ( temp < 20  ) {
-        //     console.log("it is too cold");
-        // }
-
+            if ( temp > 50 ) {
+                document.querySelector("#result")
+                .innerHTML = "it's too hot outside"
+            }
+            else if ( temp > 25 ) {
+                document.querySelector("#result")
+                .innerHTML = "it pleasant outside"
+            }
+            else if ( temp < 10 ){
+                document.querySelector("#result")
+                .innerHTML = "it's freezing outside"
+            } else {
+                document.querySelector("#result")
+                .innerHTML = "don't go outside"
+            } 
+            
+        }
 
     </script>
 </body>
